@@ -12,6 +12,7 @@ import (
 	"strings"
 	"syscall"
 	"golang.org/x/crypto/ssh/terminal"
+	"bufio"
 )
 
 // Parameters from command line
@@ -41,6 +42,15 @@ func getPasswd()(string){
 	return strings.TrimSpace(password)
 }
 
+func getUser()(string){
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Enter Username: ")
+	username, _ := reader.ReadString('\n')
+
+	return strings.TrimSpace(username)
+}
+
 // Collect parameters from the command line
 func GetParams()(retParams ParamStruct){
 	var userFlag = flag.String("user","","ePO Username")
@@ -65,8 +75,7 @@ func GetParams()(retParams ParamStruct){
 	// Test Params
 	if retParams.UserName == "" {
 		showSyntax()
-		fmt.Println("user requires a value")
-		os.Exit(0)
+		retParams.UserName = getUser()
 	}
 	if retParams.UserPass == "" {
 		showSyntax()
