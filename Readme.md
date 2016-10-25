@@ -57,28 +57,28 @@ func main() {
 * Output=json
 
 ### Find All Repositories
-UserName=someuser 
-UserPass=somepass 
-SslIgnore=true 
-Url=https://epohost:8443/remote 
-Cmd=repository.find 
-Parms=searchText=. 
-Output=json
+* UserName=someuser 
+* UserPass=somepass 
+* SslIgnore=true 
+* Url=https://epohost:8443/remote 
+* Cmd=repository.find 
+* Parms=searchText=. 
+* Output=json
 
 
 ### Find All Queries
-UserName=someuser 
-UserPass=somepass 
-SslIgnore=true 
-Url=https://epohost:8443/remote 
-Cmd=core.listQueries
-Parms=searchText=. 
-Output=json
+* UserName=someuser 
+* UserPass=somepass 
+* SslIgnore=true 
+* Url=https://epohost:8443/remote 
+* Cmd=core.listQueries
+* Parms=searchText=. 
+* Output=json
 
 ### Find All Groups
-UserName=someuser 
-UserPass=somepass 
-SslIgnore=true 
-Url=https://epohost:8443/remote 
-Cmd=systemFindGroups
-Output=json
+* UserName=someuser 
+* UserPass=somepass 
+* SslIgnore=true 
+* Url=https://epohost:8443/remote 
+* Cmd=systemFindGroups
+* Output=json
