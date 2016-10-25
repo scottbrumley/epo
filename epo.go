@@ -123,7 +123,7 @@ func GetUrl(myParms ParamStruct)(retVal string){
 	}
 
 	fmt.Println(myParms.Url)
-	req, err := http.NewRequest("GET", myParms.Url, nil)
+	req, err := http.NewRequest("GET", myParms.Query, nil)
 	req.SetBasicAuth(myParms.UserName, myParms.UserPass)
 
 	resp, err := client.Do(req)
