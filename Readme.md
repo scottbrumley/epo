@@ -39,22 +39,22 @@ func main() {
 ```
 
 ### Find All Systems
-UserName=someuser 
-UserPass=somepass 
-SslIgnore=true 
-Url=https://epohost:8443/remote 
-Cmd=system.find 
-Parms=searchText=. 
-Output=json
+..-UserName=someuser 
+..-UserPass=somepass 
+..-SslIgnore=true 
+..-Url=https://epohost:8443/remote 
+..-Cmd=system.find 
+..-Parms=searchText=. 
+..-Output=json
 
 ### Find All Policies
-UserName=someuser 
-UserPass=somepass 
-SslIgnore=true 
-Url=https://epohost:8443/remote 
-Cmd=policy.find 
-Parms=searchText=. 
-Output=json
+..-UserName=someuser 
+..-UserPass=somepass 
+..-SslIgnore=true 
+..-Url=https://epohost:8443/remote 
+..-Cmd=policy.find 
+..-Parms=searchText=. 
+..-Output=json
 
 ### Find All Repositories
 UserName=someuser 
