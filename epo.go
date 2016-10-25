@@ -25,6 +25,7 @@ type ParamStruct struct{
 	Cmd string
 	Parms string
 	Output string
+	Query string
 }
 
 func showSyntax(){
@@ -87,9 +88,9 @@ func GetParams()(retParams ParamStruct){
 	} else {
 		if (retParams.Cmd != "") {
 			if (retParams.Parms != "") {
-				retParams.Url = retParams.Url + "/" + retParams.Cmd + "?" + retParams.Parms + "&:output=" + retParams.Output
+				retParams.Query = retParams.Url + "/" + retParams.Cmd + "?" + retParams.Parms + "&:output=" + retParams.Output
 			} else {
-				retParams.Url = retParams.Url + "/" + retParams.Cmd + "?:output=" + retParams.Output
+				retParams.Query = retParams.Url + "/" + retParams.Cmd + "?:output=" + retParams.Output
 			}
 		}
 	}
