@@ -79,11 +79,7 @@ func GetParams()(retParams ParamStruct){
 	if retParams.UserPass == "" {
 		retParams.UserPass = getPasswd()
 	}
-	if retParams.Cmd == "" {
-		showSyntax()
-		fmt.Println("cmd requires a value")
-		os.Exit(0)
-	}
+
 	if retParams.Url == "" {
 		showSyntax()
 		fmt.Println("url requires a value")
