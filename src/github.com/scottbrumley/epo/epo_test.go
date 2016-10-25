@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func GetSystems() {
+func main() {
 
 	myParms := epo.GetParams()
 	jsonStr := epo.GetUrl(myParms)
