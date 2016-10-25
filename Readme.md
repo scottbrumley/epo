@@ -39,13 +39,13 @@ func main() {
 ```
 
 ### Find All Systems
-..-UserName=someuser 
-..-UserPass=somepass 
-..-SslIgnore=true 
-..-Url=https://epohost:8443/remote 
-..-Cmd=system.find 
-..-Parms=searchText=. 
-..-Output=json
+⋅⋅⋅UserName=someuser 
+⋅⋅⋅UserPass=somepass 
+⋅⋅⋅SslIgnore=true 
+⋅⋅⋅Url=https://epohost:8443/remote 
+⋅⋅⋅Cmd=system.find 
+⋅⋅⋅Parms=searchText=. 
+⋅⋅⋅Output=json
 
 ### Find All Policies
 ..-UserName=someuser 
