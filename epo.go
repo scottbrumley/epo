@@ -74,11 +74,9 @@ func GetParams()(retParams ParamStruct){
 
 	// Test Params
 	if retParams.UserName == "" {
-		showSyntax()
 		retParams.UserName = getUser()
 	}
 	if retParams.UserPass == "" {
-		showSyntax()
 		retParams.UserPass = getPasswd()
 	}
 	if retParams.Cmd == "" {
