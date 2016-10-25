@@ -10,6 +10,8 @@ import (
 	"encoding/json"
 	"log"
 	"strings"
+	"syscall"
+	"golang.org/x/crypto/ssh/terminal"
 )
 
 // Parameters from command line
@@ -26,6 +28,17 @@ type ParamStruct struct{
 
 func showSyntax(){
 	fmt.Println("For Help " + os.Args[0] + " -h")
+}
+
+func getPasswd()(string){
+	fmt.Print("Enter Password: ")
+	bytePassword, err := terminal.ReadPassword(int(syscall.Stdin))
+	if err == nil {
+		fmt.Println("\nPassword typed: " + string(bytePassword))
+	}
+	password := string(bytePassword)
+
+	return strings.TrimSpace(password)
 }
 
 // Collect parameters from the command line
@@ -57,8 +70,7 @@ func GetParams()(retParams ParamStruct){
 	}
 	if retParams.UserPass == "" {
 		showSyntax()
-		fmt.Println("password requires a value")
-		os.Exit(0)
+		retParams.UserPass = getPasswd()
 	}
 	if retParams.Cmd == "" {
 		showSyntax()
