@@ -58,7 +58,7 @@ func GetParams()(retParams ParamStruct){
 	var cmdFlag = flag.String("cmd","core.help","Command String")
 	var parmsFlag = flag.String("parms","","Parameter String")
 	var sslIgnoreFlag = flag.Bool("ignoressl",false,"Ignore Insecure SSL")
-	var outputFlag = flag.String("output","verbose","Enable output: verbose, terse, xml, json")
+	var outputFlag = flag.String("output","json","Enable output: verbose, terse, xml, json")
 	var testFlag = flag.Bool("test",false,"Testing Mode")
 	var urlFlag = flag.String("url","","URL for API")
 	flag.Parse()
