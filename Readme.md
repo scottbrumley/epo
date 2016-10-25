@@ -1,22 +1,84 @@
+# EPO API Go Program
 
-## Set GOPATH
-export GOPATH=/Users/sbrumley/IdeaProjects/epo/govendor
+## Usage Example
+```Go
+package main
 
-# Testing Syntax
-./scripts/test.sh https://localhost:8443/remote UserName Password
+import (
+	"github.com/scottbrumley/epo"
+	"fmt"
+)
 
-# ePO Syntax Examples
-## Find All Systems
-go run epo.go -user=someuser -password=somepass -ignoressl=true -url=https://epohost:8443/remote -cmd=system.find -parms=searchText=. -output=json
+func main() {
+	var myParms epo.ParamStruct
+    	
+    	myParms.Cmd = "system.find"
+    	myParms.Url = "https://epohost:8443/remote"
+    	myParms.Parms = "searchText=."
+    	myParms.Output = "json"
+    	myParms.SslIgnore = true
+    	myParms.UserName = "username"
+    	myParms.UserPass = "password"
+	
+	myParms := epo.GetParams()
+	jsonStr := epo.GetUrl(myParms)
+	data := epo.DecodeJson(jsonStr)
 
-## Find All Policies
-go run epo.go -user=someuser -password=somepass -ignoressl=true -url=https://epohost:8443/remote -cmd=policy.find -parms=searchText=. -output=json
+	lineNum := 1
+	for i := range data {
+		fmt.Printf("Record # %v\n", lineNum)
+		for key, value := range data[i] {
+			fmt.Println("Key:", key, "Value:", value)
+		}
+		lineNum = lineNum + 1
+		fmt.Println("")
+	}
 
-## Find All Repositories
-go run epo.go -user=someuser -password=somepass -ignoressl=true -url=https://epohost:8443/remote -cmd=repository.find -parms=searchText=. -output=json
+}
 
-## Find All Queries
-go run epo.go -user=someuser -password=somepass -ignoressl=true -url=https://epohost:8443/remote -cmd=core.listQueries  -output=json
+```
 
-## Find All Groups
-go run epo.go -user=someuser -password=somepass -ignoressl=true -url=https://epohost:8443/remote -cmd=system.findGroups -output=json
+### Find All Systems
+UserName=someuser 
+UserPass=somepass 
+SslIgnore=true 
+Url=https://epohost:8443/remote 
+Cmd=system.find 
+Parms=searchText=. 
+Output=json
+
+### Find All Policies
+UserName=someuser 
+UserPass=somepass 
+SslIgnore=true 
+Url=https://epohost:8443/remote 
+Cmd=policy.find 
+Parms=searchText=. 
+Output=json
+
+### Find All Repositories
+UserName=someuser 
+UserPass=somepass 
+SslIgnore=true 
+Url=https://epohost:8443/remote 
+Cmd=repository.find 
+Parms=searchText=. 
+Output=json
+
+
+### Find All Queries
+UserName=someuser 
+UserPass=somepass 
+SslIgnore=true 
+Url=https://epohost:8443/remote 
+Cmd=core.listQueries
+Parms=searchText=. 
+Output=json
+
+### Find All Groups
+UserName=someuser 
+UserPass=somepass 
+SslIgnore=true 
+Url=https://epohost:8443/remote 
+Cmd=systemFindGroups
+Output=json

@@ -5,8 +5,7 @@ import (
 	"fmt"
 )
 
-func main() {
-
+func DoStuff() {
 	myParms := epo.GetParams()
 	jsonStr := epo.GetUrl(myParms)
 	data := epo.DecodeJson(jsonStr)
